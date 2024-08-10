@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outback</title>
+    <link rel="stylesheet" href="reservando.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <style>
+        .option-box,
+        .alert-box,
+        .select-box {
+            margin-bottom: 20px;
+        }
+
+        .select-box {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .select-box img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .select-box select,
+        .select-box input[type="text"] {
+            flex: 1;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .btn-continuar {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-continuar.disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        select:disabled,
+        input[type="text"]:disabled {
+            background-color: #f0f0f0;
+            color: #ccc;
+        }
+
+        .btn-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .btn-box img {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="modal">
+        <div class="modal-header">
+            <img src="https://tagmepub.azureedge.net/pubimg/thumbs/admin/theme/a5792920-5514-11eb-a0a4-ef87eed8a338.jpg"
+                alt="Outback Steakhouse">
+        </div>
+        <img class="profile"
+            src="https://tagmepub.azureedge.net/pubimg/thumbs/admin/theme/52a2e860-4d3b-11ec-b76b-97c0ab1dd728.jpg"
+            alt="Profile Image">
+        <div class="modal-body">
+            <h1>Outback</h1>
+            <p></p>
+            <div class="option-box">
+                <div class="icon">
+                    <img src="imagens/mala.png" alt="Mala" style="width: 24px; height: 24px;">
+                </div>
+                <div class="service-text">
+                    <h3>Fazer reserva de mesa</h3>
+                    <p>Escolha a data e venha ao restaurante</p>
+                </div>
+                <button class="btn-alterar" onclick="redirectToMenu()">Alterar</button>
+            </div>
+
+            <div class="alert-box">
+                Caso não apareçam datas e horários, significa que não há mais horários disponíveis para reservas. Como
+                alternativa, sugerimos que no dia da sua visita utilize a opção de entrar na fila de espera.
+            </div>
+
+            <div class="select-box">
+                <img src="imagens/mala.png" alt="Calendário">
+                <select id="diaReserva1" onchange="enableNextSelect(1)">
+                    <option value="">Dia da Reserva</option>
+                    <option value="2024-08-10" class="option-disabled" disabled>10/08/2024 - Sua data ocupada</option>
+                    >Sua data
+                    ocupada</option>
+                    <option value="2024-08-11">Data disponivel</option>
+                </select>
+            </div>
+            <div class="select-box">
+                <img src="imagens/pointer.png" alt="Salão">
+                <select id="diaReserva2" onchange="enableNextSelect(2)" disabled>
+                    <option value="">Salão, Ambiente ou atividade</option>
+                    <option value="2024-08-10">Principal</option>
+                </select>
+            </div>
+            <div class="select-box">
+                <img src="imagens/avatar-de-perfil.png" alt="Pessoas">
+                <select id="diaReserva3" onchange="enableNextSelect(3)" disabled>
+                    <option value="">Pessoas</option>
+                    <option value="2024-08-10">2 pessoas</option>
+                    <option value="2024-08-10">3 pessoas</option>
+                    <option value="2024-08-10">4 pessoas</option>
+                    <option value="2024-08-10">5 pessoas</option>
+                    <option value="2024-08-10">6 pessoas</option>
+                </select>
+            </div>
+            <div class="select-box">
+                <img src="imagens/relogio.png" alt="Horário">
+                <select id="diaReserva4" onchange="enableNextSelect(4)" disabled>
+                    <option value="">Horário</option>
+                    <option value="2024-08-10">12:00</option>
+                    <option value="2024-08-10">15:30</option>
+                    <option value="2024-08-10">16:00</option>
+                    <option value="2024-08-10">16:30</option>
+                    <option value="2024-08-10">17:00</option>
+
+                </select>
+            </div>
+            <div class="select-box">
+                <img src="imagens/lapis.png" alt="Especial">
+                <input type="text" id="diaReserva5" onchange="enableNextSelect(5)" disabled
+                    placeholder="Precisa de algo especial? (Opcional)">
+            </div>
+
+            <button id="btnContinuar" class="btn-continuar" disabled>Continuar</button>
+        </div>
+    </div>
+
+    <script>
+        function enableNextSelect(currentIndex) {
+            const totalSelects = 5; // Total de menus de seleção
+            const nextIndex = currentIndex + 1;
+            const currentSelect = document.getElementById(`diaReserva${currentIndex}`);
+            const nextSelect = document.getElementById(`diaReserva${nextIndex}`);
+            const btnContinuar = document.getElementById('btnContinuar');
+
+            if (nextSelect) {
+                if (currentSelect.value !== "" || (currentIndex === 5 && currentSelect.value.trim() !== "")) {
+                    nextSelect.disabled = false;
+                } else {
+                    nextSelect.disabled = true;
+                    if (nextSelect.tagName === 'SELECT') {
+                        nextSelect.selectedIndex = 0; // Limpa a seleção do próximo menu
+                    } else {
+                        nextSelect.value = ''; // Limpa o valor da caixa de texto
+                    }
+                }
+            }
+
+            // Habilita o botão "Continuar" se todos os selects e a caixa de texto estiverem preenchidos
+            const allFieldsFilled = [...Array(totalSelects).keys()].every(i => {
+                const el = document.getElementById(`diaReserva${i + 1}`);
+                return el.tagName === 'SELECT' ? el.value !== "" : el.value.trim() !== "";
+            });
+
+            btnContinuar.disabled = !allFieldsFilled;
+            btnContinuar.classList.toggle('disabled', !allFieldsFilled);
+        }
+
+        function redirectToMenu() {
+            window.location.href = "reserva.html";
+        }
+    </script>
+</body>
+
+</html>

@@ -22,25 +22,31 @@
         <div class="modal-body">
             <h2>Bem-vindo ao Outback</h2>
             <p>Qual serviço você deseja utilizar?</p>
-            <div class="service-option">
-                <div class="icon">&#128188;</div>
+            <div class="service-option" onclick="redirectToReservation()">
+                <div class="icon">
+                    <img src="imagens/mala.png" alt="Mala" style="width: 24px; height: 24px;">
+                </div>
                 <div class="service-text">
                     <h3>Fazer reserva de mesa</h3>
                     <p>Escolha a data e venha ao restaurante</p>
                 </div>
             </div>
             <div class="service-option disabled">
-                <div class="icon">&#9201;</div>
+                <div class="icon">
+                    <img src="imagens/relogio.png" alt="Relógio" style="width: 24px; height: 24px;">
+                </div>
                 <div class="service-text">
                     <h3>Entrar na lista de espera</h3>
                     <span class="status">Fechada</span>
                 </div>
             </div>
-            <div class="service-option">
-                <div class="icon">&#128218;</div>
+            <div class="service-option" onclick="redirectToMenu()">
+                <div class="icon">
+                    <img src="imagens/livro.png" alt="Livro" style="width: 24px; height: 24px;">
+                </div>
                 <div class="service-text">
                     <h3>Veja o cardápio</h3>
-                    <p>Cardápio digital Outback Steakhouse Alphaville</p>
+                    <p>Cardápio digital Outback</p>
                 </div>
             </div>
         </div>
@@ -48,6 +54,14 @@
     <script>
         function returnToHome() {
             window.location.href = "index.html";
+        }
+
+        function redirectToMenu() {
+            window.location.href = "https://livemenu.app/menu/5f77763e52df65ed8731572e";
+        }
+
+        function redirectToReservation() {
+            window.location.href = "reservando.html";
         }
     </script>
 </body>
