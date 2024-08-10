@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outback Steakhouse Alphaville</title>
+    <link rel="icon"
+        href="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://reservation-widget.tagme.com.br/group/5f8de58570a20810ec180d77&size=16"
+        type="image/png">
+    <link rel="stylesheet" href="reserva.css">
+    <link rel="stylesheet" href="https://use.fortawesome.com/kits/ce1a9ca9/publications/124303/woff2.css">
+</head>
+
+<body>
+    <div class="modal">
+        <div class="modal-header">
+            <img src="https://tagmepub.azureedge.net/pubimg/thumbs/admin/theme/52a2e860-4d3b-11ec-b76b-97c0ab1dd728.jpg"
+                alt="Outback Steakhouse">
+            <button class="close-btn" onclick="returnToHome()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <h2>Bem-vindo ao Outback</h2>
+            <p>Qual serviço você deseja utilizar?</p>
+            <div class="service-option" onclick="redirectToReservation()">
+                <div class="icon">
+                    <img src="imagens/mala.png" alt="Mala" style="width: 24px; height: 24px;">
+                </div>
+                <div class="service-text">
+                    <h3>Fazer reserva de mesa</h3>
+                    <p>Escolha a data e venha ao restaurante</p>
+                </div>
+            </div>
+            <div class="service-option disabled">
+                <div class="icon">
+                    <img src="imagens/relogio.png" alt="Relógio" style="width: 24px; height: 24px;">
+                </div>
+                <div class="service-text">
+                    <h3>Entrar na lista de espera</h3>
+                    <span class="status">Fechada</span>
+                </div>
+            </div>
+            <div class="service-option" onclick="redirectToMenu()">
+                <div class="icon">
+                    <img src="imagens/livro.png" alt="Livro" style="width: 24px; height: 24px;">
+                </div>
+                <div class="service-text">
+                    <h3>Veja o cardápio</h3>
+                    <p>Cardápio digital Outback</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function returnToHome() {
+            window.location.href = "index.html";
+        }
+
+        function redirectToMenu() {
+            window.location.href = "https://livemenu.app/menu/5f77763e52df65ed8731572e";
+        }
+
+        function redirectToReservation() {
+            window.location.href = "reservando.html";
+        }
+    </script>
+</body>
+
+</html>

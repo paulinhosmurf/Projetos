@@ -1,0 +1,153 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Background semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.modal {
+    background-color: #fff;
+    width: 360px;
+    max-height: 600px; /* Define a altura máxima do contêiner */
+    border-radius: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Adiciona a rolagem vertical */
+    overflow-x: hidden; /* Remove a rolagem horizontal */
+    position: relative;
+}
+.modal .profile {
+    width: 75px;
+    height: 75px;
+    border-radius: 6px; /* Faz a imagem ser circular */
+    position: absolute;
+    bottom: 403px; /* Ajuste conforme necessário */
+    left: 10px; /* Ajuste conforme necessário */
+    border: 1px solid #e6e6e6;
+    z-index: 2; /* Garante que a imagem do perfil esteja acima do banner */
+}
+.modal-header img {
+    width: 100%;
+    height: auto;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+p {
+    color: gray;
+    margin-top: 5px;
+    font-size: 0.9em;
+}
+
+.option-box {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.option-box .icon img {
+    margin-right: 10px;
+}
+
+.service-text {
+    flex-grow: 1;
+}
+
+.service-text h3
+{
+    font-size: 15px;
+    font-weight: 100;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-family: Open Sans;
+}
+.service-text p{
+    padding-bottom: 0px;
+    padding-top: -50px;
+    margin-bottom: 0px;
+    font-weight: 100;
+    font-family: Open Sans;
+
+}
+.btn-alterar {
+    background-color: white;
+    border: 2px solid #ff6600;
+    color: #ff6600;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-alterar:hover {
+    background-color: #ff6600;
+    color: white;
+}
+
+.alert-box {
+    background-color: #fff9e6;
+    border-left: 5px solid #ffcc00;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 0.85em;
+    color: #666;
+}
+
+.select-box {
+    margin-top: 20px;
+    font-family: Open Sans;
+}
+
+.select-box select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 0.9em;
+}
+
+.btn-continuar {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: not-allowed;
+}
+
+.btn-continuar.disabled {
+    background-color: #f5f5f5;
+    color: #999;
+}
+
+.btn-continuar:enabled {
+    cursor: pointer;
+    background-color: #ff6600;
+    color: white;
+}
+
+.btn-continuar:enabled:hover {
+    background-color: #e55a00;
+}
+.option-disabled {
+    color: #ccc; /* Cor cinza para opções desativadas */
+    background-color: #f9f9f9; /* Fundo levemente cinza para opções desativadas */
+}
